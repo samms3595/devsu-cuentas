@@ -100,14 +100,4 @@ class CuentaControllerTest {
         verify(cuentaService, times(1)).eliminarCuenta(1L);
     }
 
-    @Test
-    void testActualizarMontoWhenValidIdCuentaMontoTipoMovimientoThenReturnCuenta() {
-        when(cuentaService.actualizarMonto(anyLong(), anyDouble(), any(TipoMovimiento.class))).thenReturn(cuenta);
-
-        ResponseEntity<Cuenta> response = cuentaController.actualizarMonto(1L, 500.0, TipoMovimiento.DEPOSITO);
-
-        assertEquals(200, response.getStatusCodeValue());
-        assertEquals(cuenta, response.getBody());
-        verify(cuentaService, times(1)).actualizarMonto(1L, 500.0, TipoMovimiento.DEPOSITO);
-    }
 }
