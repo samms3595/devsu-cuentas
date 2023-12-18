@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "b2e879b9-4eaa-4012-9605-c94feaf5ef0b",
+		"name": "Cuentas y Movimientos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21197084",
+		"_collection_link": "https://interstellar-rocket-590860.postman.co/workspace/Banesco-WorkSpace~d597b2dc-7da2-42df-8a62-c779e18ed9a9/collection/21197084-b2e879b9-4eaa-4012-9605-c94feaf5ef0b?action=share&source=collection_link&creator=21197084"
+	},
+	"item": [
+		{
+			"name": "Crear Cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idCliente\": 10486103751,\r\n  \"numeroCuenta\": 11223344,\r\n  \"tipoCuenta\": \"AHORRO\",\r\n  \"saldoInicial\": 30000,\r\n  \"estado\": \"ACTIVO\",\r\n  \"movimientos\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/cuentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener cuenta por el id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/cuentas/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cuentas",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Cuenta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 123212,\r\n  \"idCliente\": 123123123,\r\n  \"numeroCuenta\": 112233,\r\n  \"tipoCuenta\": \"CORRIENTE\",\r\n  \"saldoInicial\": 25000,\r\n  \"saldoActual\": 25000,\r\n  \"estado\": \"ACTIVO\",\r\n  \"movimientos\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/cuentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Todas las cuentas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/cuentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Cuenta Por el ID del cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/cuentas/cliente/1231231232",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cuentas",
+						"cliente",
+						"1231231232"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar cuentas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/cuentas/112233",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cuentas",
+						"112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Movimiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fecha\": \"2023-12-17\",\r\n    \"saldo\": 5000.00,\r\n    \"valor\": -1000.00,\r\n    \"tipoMovimiento\": \"RETIRO\",\r\n    \"cuentaId\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/movimientos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"movimientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver movimiento por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/movimientos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"movimientos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Movimientos por Id del Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/movimientos/cliente/12312312123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"movimientos",
+						"cliente",
+						"12312312123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado de Movimientos por id del Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/movimientos/cuenta/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"movimientos",
+						"cuenta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar movimiento por el ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/movimientos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"movimientos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Movimiento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fecha\": \"2023-12-17\",\r\n    \"saldo\": 5000.00,\r\n    \"valor\": -1000.00,\r\n    \"tipoMovimiento\": \"RETIRO\",\r\n    \"cuentaId\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/movimientos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"movimientos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reporte Por Fecha y ID del cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/movimientos/fecha/2023-12-17&2023-12-17/12312312123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"movimientos",
+						"fecha",
+						"2023-12-17&2023-12-17",
+						"12312312123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

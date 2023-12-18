@@ -103,19 +103,4 @@ public class CuentaController {
         return ResponseEntity.notFound().build();
     }
 
-    @Operation(summary = "Actualizar Montos de una cuenta")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Monto actualizado con éxito",
-                    content = @Content(mediaType = "application/json",schema = @Schema(implementation = Cuenta.class))),
-            @ApiResponse(responseCode = "400", description = "Datos inválidos",
-                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class)))
-    })
-    @PatchMapping("/{idCuenta}/monto")
-    public ResponseEntity<Cuenta> actualizarMonto(
-            @PathVariable Long idCuenta,
-            @RequestParam double monto,
-            @RequestParam TipoMovimiento tipoMovimiento) {
-
-        return ResponseEntity.ok(cuentaService.actualizarMonto(idCuenta, monto, tipoMovimiento));
-    }
 }
