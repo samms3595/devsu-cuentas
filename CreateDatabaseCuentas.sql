@@ -1,5 +1,7 @@
+drop database cuentas;
 create database cuentas;
 use cuentas;
+CREATE USER 'cuentas'@'localhost' IDENTIFIED BY 'Devsu123.';
 
 create table cuenta
 (id bigint not null,
@@ -19,7 +21,5 @@ create table movimiento (
     valor float(53) not null,
     cuenta_id bigint,
     primary key (id)) engine=InnoDB;
-
-CREATE USER 'cuentas'@'localhost' IDENTIFIED BY 'Devsu123.';
 GRANT ALL PRIVILEGES ON cuentas TO 'cuentas'@'localhost';
 FLUSH PRIVILEGES;

@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  servicio-cuentas:
+    build: .
+    ports:
+      - "9092:9092"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db-cuentas:3306/cuentas
+      SPRING_DATASOURCE_USERNAME: cuentas
+      SPRING_DATASOURCE_PASSWORD: Devsu123.
+    networks:
+      - devsu-client_redFeing
+    depends_on:
+      - db-cuentas
+  db-cuentas:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: cuentas
+      MYSQL_USER: cuentas
+      MYSQL_PASSWORD: Devsu123.
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3313:3306"
+    networks:
+      - devsu-client_redFeing
+    volumes:
+      - ./CreateDatabaseCuentas.sql:/docker-entrypoint-initdb.d/CreateDatabaseCuentas.sql
+      - mysql-data-cuentas:/var/lib/mysql
+networks:
+  devsu-client_redFeing:
+    external: true
+volumes:
+  mysql-data-cuentas:
